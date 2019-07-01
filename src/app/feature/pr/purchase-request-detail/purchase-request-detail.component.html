@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+<div class='component-content'>	
+		<div class = 'lefthalf'>
+			<span class='component-title'>{{title}}</span>
+		</div>
+  <table class="table table-sm" *ngIf='purchaseRequest'>
+    <tr>
+      <td>Id</td><td>{{ purchaseRequest.id }}</td>
+    </tr>
+    <tr>
+      <td>User</td><td>{{ purchaseRequest.user.userName }}</td>
+    </tr>
+    <tr>
+      <td>Description</td><td>{{ purchaseRequest.description }}</td>
+    </tr>
+    <tr>
+      <td>Justification</td><td>{{ purchaseRequest.justification }}</td>
+    </tr>
+    <tr>
+      <td>Date Needed</td><td>{{ purchaseRequest.dateNeeded }}</td>
+    </tr>
+    <tr>
+      <td>Delivery Mode</td><td>{{ purchaseRequest.deliveryMode }}</td>
+    </tr>
+    <tr>
+      <td>Status</td><td>{{ purchaseRequest.status }}</td>
+    </tr>
+    <tr>
+      <td>Total</td><td>{{ purchaseRequest.total }}</td>
+    </tr>
+    <tr>
+      <td>Submitted Date</td><td>{{ purchaseRequest.submittedDate }}</td>
+    </tr>
+    <tr>
+      <td>Reason for Rejection</td><td>{{ purchaseRequest.reasonForRejection }}</td>
+    </tr>
+    <tr>
+	    <td colspan="2">
+	      <a routerLink='/pr/edit/{{purchaseRequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+	      <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+	    </td>
+    </tr>
+  </table>
+</div>

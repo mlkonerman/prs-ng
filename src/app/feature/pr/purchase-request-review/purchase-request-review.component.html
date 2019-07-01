@@ -1,0 +1,34 @@
+<app-menu></app-menu>
+<div class='component-content'>
+    <div class='lefthalf'>
+      <span class='component-title'>{{title}}</span>
+    </div>
+  </div>
+  <p *ngIf='!purchaseRequests'>Loading...</p>
+  <table class="table table-sm" *ngIf='purchaseRequests'>
+    <tr>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>Id</u></a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>User</u></a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>Description</u></a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>Date Needed</u></a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>Delivery Mode</u></a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>Status</u></a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>Total</u></a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>Submitted Date</u></a></th>
+      <th class="table-secondary btn-link">Action</th>
+    </tr>
+    <tr *ngFor='let pr of purchaseRequests'>
+      <td>{{ pr.id }}</td>
+      <td>{{ pr.user.userName }}</td>
+      <td>{{ pr.description }}</td>
+      <td>{{ pr.dateNeeded }}</td>
+      <td>{{ pr.deliveryMode }}</td>
+      <td>{{ pr.status }}</td>
+      <td>{{ pr.total }}</td>
+      <td>{{ pr.submittedDate }}</td>
+  
+      <td class='actions'>
+        <a routerLink='/pr/approve/{{pr.id}}'><img src='assets/review-icon.png' width='20' height='20' title='Review'></a>
+      </td>
+    </tr>
+  </table>

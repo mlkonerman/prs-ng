@@ -1,0 +1,46 @@
+<app-menu></app-menu>
+<div id='component'>
+  <div id="pagetitle">
+    <span>{{title}}</span>
+  </div>
+  <p *ngIf='!purchaseRequest'>Loading...</p>
+  <div *ngIf='purchaseRequest'>
+
+    <div class='form-group row'>
+      <label class='col-form-label col-sm-2' for="purchaserequestuser">User:</label>
+      <input [(ngModel)]='purchaseRequest.user.userName' name='Name' type="text" class="form-control col-sm-6"
+        id="purchaserequestuser" aria-describedby="usrHelp" placeholder="UserName" disabled>
+      <small id="usrHelp" class="form-text text-muted col-sm-2">The UserName</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="description">Description:</label>
+      <input [(ngModel)]='purchaseRequest.description' name='Description' type="text" class="form-control col-sm-6"
+        id="description" aria-describedby="descriptionHelp" placeholder="Description">
+      <small id="descriptionHelp" class="form-text text-muted col-sm-2">Description of request</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="justification">Justification:</label>
+      <input [(ngModel)]='purchaseRequest.justification' name='Justification' type="text" class="form-control col-sm-6"
+        id="justification" aria-describedby="justificationHelp" placeholder="Justification">
+      <small id="justificationHelp" class="form-text text-muted col-sm-2">Reason for request</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="dateNeeded">Date Needed:</label>
+      <input [(ngModel)]='purchaseRequest.dateNeeded' name='DateNeeded' type="date" class="form-control col-sm-6"
+        id="dateNeeded" aria-describedby="dateNeededHelp" placeholder="YYYY-MM-DD">
+      <small id="dateNeededHelp" class="form-text text-muted col-sm-2">Date you need your items</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="deliveryMode">Delivery Mode:</label>
+      <select [(ngModel)]='purchaseRequest.deliveryMode' name='DeliveryMode' type="text" class="form-control col-sm-6"
+        id="deliveryMode" aria-describedby="deliveryModeHelp" placeholder="Delivery Mode">
+        <option value="Mail">Mail</option>
+        <option value="Pickup">Pickup</option>
+      </select>
+      <small id="deliveryModeHelp" class="form-text text-muted col-sm-2">How should your items be delivered?</small>
+    </div>
+    <div class='form-group'>
+      <button (click)='create()' class='btn btn-primary'>Create</button>
+    </div>
+  </div>
+</div>

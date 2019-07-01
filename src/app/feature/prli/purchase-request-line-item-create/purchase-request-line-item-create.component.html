@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div id='component'>
+  <div id="pagetitle">
+    <span>{{title}}</span>
+  </div>
+  <p *ngIf='!prli'>Loading...</p>
+  <div *ngIf='prli'>
+
+    <div class='form-group row'>
+      <label class='col-form-label col-sm-2' for="prliPurchaseRequest">Purchase Request:</label>
+      <input *ngIf='purchaseRequest' [(ngModel)]='prli.purchaseRequest.id' name='PurchaseRequest' type="text" class="form-control col-sm-6"
+        id="prliPurchaseRequest" aria-describedby="prHelp" placeholder="PurchaseRequest" disabled>
+      <small id="prHelp" class="form-text text-muted col-sm-2">The Purchase Request</small>
+    </div>
+    <div class='form-group row'>
+      <label class='col-form-label col-sm-2' for="product">Product:</label>
+      <div class=' col-sm-6'>
+        <select [(ngModel)]='prli.product' class='form-control' name='Product' id='product'>
+          <option *ngFor="let product of products" [ngValue]="product">{{product.name}} | {{product.vendor.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="quantity">Quantity</label>
+      <input [(ngModel)]='prli.quantity' name='Quantity' type="number" class="form-control col-sm-6" id="quantity"
+        aria-describedby="quantityHelp" placeholder="Quantity">
+      <small id="quantityHelp" class="form-text text-muted col-sm-2">How many do you need?</small>
+    </div>
+    <div class='form-group'>
+      <button (click)='create()' class='btn btn-primary'>Add</button>
+    </div>
+  </div>
+</div>
